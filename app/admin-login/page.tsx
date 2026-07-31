@@ -42,7 +42,7 @@ export default function AdminLoginPage() {
         <Link href="/" className="admin-login-back">← Volver a la tienda</Link>
         <div className="admin-login-icon"><LockKeyhole /></div>
         <h1>Acceso administrativo</h1>
-        <p>Ingresá con las credenciales privadas de AZ+PHARMA.</p>
+        <p>Acceso exclusivo del administrador. El ingreso de clientes continúa separado en la tienda.</p>
         <label><span>Correo</span><div><Mail size={18}/><input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} required /></div></label>
         <label><span>Contraseña</span><div><LockKeyhole size={18}/><input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} required /></div></label>
         {error && <p className="admin-login-error">{error}</p>}
