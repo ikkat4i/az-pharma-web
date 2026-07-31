@@ -10,7 +10,6 @@ import {
   Cog,
   DollarSign,
   LayoutGrid,
-  LogOut,
   Package,
   RefreshCw,
   Trash2,
@@ -20,6 +19,7 @@ import {
 import { Navbar } from '@/components/Navbar';
 import { products } from '@/data/products';
 import { useStore, type Order } from '@/components/StoreProvider';
+import { AdminLogoutButton } from '@/components/AdminLogoutButton';
 
 type Tab =
   | 'resumen'
@@ -100,10 +100,7 @@ export default function Dashboard() {
             ))}
           </nav>
 
-          <Link href="/">
-            <LogOut />
-            Salir del panel
-          </Link>
+          <AdminLogoutButton />
         </aside>
 
         <section className="admin-main">

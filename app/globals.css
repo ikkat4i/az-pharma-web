@@ -1022,3 +1022,14 @@ html body .detail-image .detail-product-img{
     max-height:170px!important;
   }
 }
+
+/* Acceso administrativo */
+.admin-login-page{min-height:100vh;display:grid;place-items:center;padding:32px;background:linear-gradient(135deg,#eef6ff,#fff)}
+.admin-login-card{width:min(440px,100%);background:#fff;border:1px solid #dbe8f7;border-radius:26px;padding:34px;box-shadow:0 24px 70px rgba(15,45,85,.13);display:grid;gap:18px}
+.admin-login-back{font-size:14px;color:#416080;text-decoration:none}
+.admin-login-icon{width:58px;height:58px;border-radius:18px;background:#eaf3ff;color:#1272f3;display:grid;place-items:center}
+.admin-login-card h1{margin:0;font-size:30px;color:#071a38}.admin-login-card>p{margin:0;color:#61728a}
+.admin-login-card label{display:grid;gap:8px;font-weight:700;color:#203653}.admin-login-card label div{height:52px;border:1px solid #ccddef;border-radius:14px;display:flex;align-items:center;gap:10px;padding:0 15px}
+.admin-login-card input{border:0;outline:0;width:100%;font:inherit;background:transparent}.admin-login-card>button{height:52px;border:0;border-radius:14px;background:#1475f5;color:white;font-weight:800;font-size:16px;cursor:pointer}
+.admin-login-card>button:disabled{opacity:.65}.admin-login-error{color:#b42318!important;background:#fff0ee;padding:11px 13px;border-radius:10px}
+.admin-logout{width:100%;display:flex;align-items:center;gap:10px;border:0;background:transparent;color:#586b84;padding:14px 18px;font:inherit;cursor:pointer;text-align:left}
