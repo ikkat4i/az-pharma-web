@@ -1,0 +1,21 @@
+AZ+PHARMA — ACCESO ADMINISTRATIVO Y WHATSAPP
+
+Acceso administrador:
+  /admin-login
+  También funciona: /admin
+
+Correo:
+  azupharma0@gmail.com
+
+Contraseña temporal:
+  admin1234
+
+WhatsApp de pedidos:
+  +595 973 694377
+  Variable opcional en Vercel:
+  NEXT_PUBLIC_WHATSAPP_NUMBER=595973694377
+
+El botón público "Ingresar" continúa siendo solamente para clientes.
+El Dashboard aparece en el menú únicamente después de iniciar sesión como administrador.
+
+El checkout abre WhatsApp antes de limpiar el carrito para evitar que el pedido desaparezca.

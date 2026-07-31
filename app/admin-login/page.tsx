@@ -27,7 +27,12 @@ export default function AdminLoginPage() {
         setError(data.error || 'No se pudo iniciar sesión.');
         return;
       }
-      router.replace('/dashboard');
+      const nextPath =
+        typeof window !== 'undefined'
+          ? new URLSearchParams(window.location.search).get('next')
+          : null;
+
+      router.replace(nextPath?.startsWith('/') ? nextPath : '/dashboard');
       router.refresh();
     } catch {
       setError('No se pudo conectar con el servidor.');
@@ -42,7 +47,7 @@ export default function AdminLoginPage() {
         <Link href="/" className="admin-login-back">← Volver a la tienda</Link>
         <div className="admin-login-icon"><LockKeyhole /></div>
         <h1>Acceso administrativo</h1>
-        <p>Acceso exclusivo del administrador. El ingreso de clientes continúa separado en la tienda.</p>
+        <p>Acceso exclusivo del administrador. Este formulario es independiente del ingreso de clientes por teléfono.</p>
         <label><span>Correo</span><div><Mail size={18}/><input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} required /></div></label>
         <label><span>Contraseña</span><div><LockKeyhole size={18}/><input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} required /></div></label>
         {error && <p className="admin-login-error">{error}</p>}
