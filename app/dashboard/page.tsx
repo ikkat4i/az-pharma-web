@@ -269,7 +269,7 @@ export default function Dashboard() {
           {tab === 'cotizaciones' && (
             <RatesPanel
               rates={rates}
-              ratesDate={ratesDate}
+              ratesDate={ratesDate ?? ''}
               ratesFallback={ratesFallback}
             />
           )}
