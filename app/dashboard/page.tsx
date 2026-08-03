@@ -5,7 +5,6 @@ import Link from 'next/link';
 import {
   Bell,
   Box,
-  ChevronRight,
   ClipboardList,
   Cog,
   DollarSign,
@@ -19,6 +18,7 @@ import {
 import { Navbar } from '@/components/Navbar';
 import { useStore, type Order } from '@/components/StoreProvider';
 import { AdminLogoutButton } from '@/components/AdminLogoutButton';
+import { AdminInventoryTable } from '@/components/AdminInventoryTable';
 
 type Tab =
   | 'resumen'
@@ -38,7 +38,6 @@ const fmt = (date: string) =>
 export default function Dashboard() {
   const [tab, setTab] = useState<Tab>('resumen');
   const [query, setQuery] = useState('');
-  const [inventorySaved, setInventorySaved] = useState('');
 
   const {
     orders,
@@ -50,6 +49,7 @@ export default function Dashboard() {
     ratesDate,
     ratesFallback,
     products,
+    productsLoading,
     updateProduct,
   } = useStore();
 
@@ -240,56 +240,15 @@ export default function Dashboard() {
           {tab === 'inventario' && (
             <div className="admin-card">
               <div className="admin-card-head">
-                <h2>Inventario</h2>
+                <h2>Inventario conectado</h2>
                 <span>{products.length} productos</span>
               </div>
 
-              <p className="inventory-help">Editá el precio base en dólares y el stock. Los cambios se reflejan inmediatamente en el catálogo de este navegador.</p>
-              {inventorySaved && <p className="inventory-saved">{inventorySaved}</p>}
-              <div className="inventory-editor">
-                <div className="inventory-editor-head">
-                  <span>Producto</span><span>Precio US$</span><span>Stock</span><span>Vista</span>
-                </div>
-                {products.map((product) => (
-                  <article key={product.id}>
-                    <div className="inventory-product-name">
-                      <b>{product.name}</b>
-                      <small>{product.laboratory}</small>
-                    </div>
-                    <label>
-                      <span className="sr-only">Precio de {product.name}</span>
-                      <input
-                        type="number"
-                        min="0"
-                        step="0.01"
-                        value={product.priceUSD ?? ''}
-                        placeholder="Consultar"
-                        onChange={(event) => {
-                          const value = event.target.value;
-                          updateProduct(product.id, { priceUSD: value === '' ? null : Number(value) });
-                          setInventorySaved('Cambios guardados localmente.');
-                        }}
-                      />
-                    </label>
-                    <label>
-                      <span className="sr-only">Stock de {product.name}</span>
-                      <input
-                        type="number"
-                        min="0"
-                        step="1"
-                        value={product.stock}
-                        onChange={(event) => {
-                          updateProduct(product.id, { stock: Math.max(0, Number(event.target.value) || 0) });
-                          setInventorySaved('Cambios guardados localmente.');
-                        }}
-                      />
-                    </label>
-                    <Link href={`/productos/${product.slug}`}>
-                      Ver <ChevronRight />
-                    </Link>
-                  </article>
-                ))}
-              </div>
+              <AdminInventoryTable
+                products={products}
+                loading={productsLoading}
+                updateProduct={updateProduct}
+              />
             </div>
           )}
 
