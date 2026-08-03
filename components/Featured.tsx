@@ -2,10 +2,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Check, Sparkles } from 'lucide-react';
-import { products } from '@/data/products';
 import { useStore } from './StoreProvider';
 export function Featured(){
-  const {t,formatPrice}=useStore(); const product=products[0];
+  const {t,formatPrice,products}=useStore(); const product=products[0];
   return <section className="featured"><div className="featured-inner">
     <div className="featured-copy"><h2>{t('specialists')} <span>{t('treatments')}</span> {t('weight')}</h2>
       <div className="feature-list"><div><Sparkles/><p><b>{t('qualityProducts')}</b><small>{t('qualityProductsSub')}</small></p></div><div><Sparkles/><p><b>{t('trust')}</b><small>{t('trustSub')}</small></p></div><div><Sparkles/><p><b>{t('transform')}</b><small>{t('transformSub')}</small></p></div></div>
