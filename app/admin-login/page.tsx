@@ -23,10 +23,16 @@ export default function AdminLoginPage() {
       const { data, error: loginError } =
         await supabase.auth.signInWithPassword({ email, password });
 
-      if (loginError || !data.user) {
-        setError('Correo o contraseña incorrectos.');
-        return;
-      }
+      if (loginError) {
+  console.error(loginError);
+  alert(JSON.stringify(loginError, null, 2));
+  return;
+}
+
+if (!data.user) {
+  alert("Supabase no devolvió ningún usuario.");
+  return;
+}
 
       const { data: profile, error: profileError } = await supabase
         .from('profiles')
