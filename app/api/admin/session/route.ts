@@ -1,8 +1,30 @@
-import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
-import { ADMIN_COOKIE, verifyAdminSession } from '@/lib/admin-auth';
+import { createClient } from '@/lib/supabase/server';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  const store = await cookies();
-  return NextResponse.json({ isAdmin: verifyAdminSession(store.get(ADMIN_COOKIE)?.value) });
+  try {
+    const supabase = await createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      return NextResponse.json({ isAdmin: false });
+    }
+
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single();
+
+    return NextResponse.json({
+      isAdmin: profile?.role === 'admin',
+      email: user.email ?? null,
+    });
+  } catch {
+    return NextResponse.json({ isAdmin: false });
+  }
 }

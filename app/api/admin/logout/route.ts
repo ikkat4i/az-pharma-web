@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
-import { ADMIN_COOKIE } from '@/lib/admin-auth';
+import { createClient } from '@/lib/supabase/server';
 
-export async function POST() {
-  const response = NextResponse.json({ ok: true });
-  response.cookies.set(ADMIN_COOKIE, '', { httpOnly: true, path: '/', maxAge: 0 });
-  return response;
+export async function GET(request: Request) {
+  const supabase = await createClient();
+  await supabase.auth.signOut({ scope: 'local' });
+  return NextResponse.redirect(new URL('/', request.url));
 }
