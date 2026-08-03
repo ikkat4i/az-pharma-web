@@ -7,6 +7,7 @@ import { Footer } from '@/components/Footer';
 import { AccountSection } from '@/components/AccountSection';
 import { Hero } from '@/components/Hero';
 import { Navbar } from '@/components/Navbar';
+import { RegisteredCatalogDownload } from '@/components/RegisteredCatalogDownload';
 export default function Home(){return <><Navbar/><main><Hero/><Featured/><Catalog/><Benefits/><AccountSection/></main>
       <section className="featured-video-section" aria-labelledby="featured-video-title">
         <div className="featured-video-copy">
@@ -33,4 +34,5 @@ export default function Home(){return <><Navbar/><main><Hero/><Featured/><Catalo
           />
         </div>
       </section>
+<RegisteredCatalogDownload/>
 <Footer/><CartDrawer/><AuthModal/></>}
