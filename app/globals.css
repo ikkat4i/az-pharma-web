@@ -1495,3 +1495,44 @@ html body .detail-image .detail-product-img{
     line-height:1.08 !important;
   }
 }
+/* Evitar flechas duplicadas en el banner */
+.hero-arrow::before,
+.hero-arrow::after {
+  content: none !important;
+  display: none !important;
+}
+
+.hero-arrow svg {
+  display: block !important;
+}
+/* Banner con productos reales del catálogo AZ+PHARMA */
+.hero.hero-artwork{
+  min-height:480px !important;
+  background-size:cover !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
+  background-color:#f7fbff !important;
+}
+
+.hero.hero-artwork .hero-arrow{
+  background:rgba(8,17,36,.7) !important;
+  border-color:rgba(255,255,255,.55) !important;
+}
+
+@media(max-width:760px){
+  .hero.hero-artwork{
+    min-height:58vw !important;
+    background-size:contain !important;
+    background-position:center !important;
+  }
+
+  .hero.hero-artwork .hero-arrow{
+    width:38px !important;
+    height:38px !important;
+  }
+
+  .hero.hero-artwork .dots{
+    bottom:8px !important;
+  }
+}
+
