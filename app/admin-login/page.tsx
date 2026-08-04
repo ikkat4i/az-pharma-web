@@ -8,6 +8,7 @@ import { createClient } from '@/lib/supabase/browser';
 
 export default function AdminLoginPage() {
   const router = useRouter();
+
   const [email, setEmail] = useState('azupharma0@gmail.com');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -15,24 +16,31 @@ export default function AdminLoginPage() {
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     setError('');
     setLoading(true);
 
     try {
       const supabase = createClient();
+
       const { data, error: loginError } =
-        await supabase.auth.signInWithPassword({ email, password });
+        await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
 
       if (loginError) {
-  console.error(loginError);
-  alert(JSON.stringify(loginError, null, 2));
-  return;
-}
+        console.error(loginError);
 
-if (!data.user) {
-  alert("Supabase no devolvió ningún usuario.");
-  return;
-}
+        const message = loginError.message || 'No se pudo iniciar sesión.';
+        setError(message);
+        return;
+      }
+
+      if (!data.user) {
+        setError('Supabase no devolvió ningún usuario.');
+        return;
+      }
 
       const { data: profile, error: profileError } = await supabase
         .from('profiles')
@@ -40,50 +48,40 @@ if (!data.user) {
         .eq('id', data.user.id)
         .single();
 
-      if (profileError || profile?.role !== 'admin') {
+      if (profileError) {
+        console.error(profileError);
+        await supabase.auth.signOut({ scope: 'local' });
+        setError('No se pudo verificar el perfil del administrador.');
+        return;
+      }
+
+      if (profile?.role !== 'admin') {
         await supabase.auth.signOut({ scope: 'local' });
         setError('Esta cuenta no tiene permisos de administrador.');
         return;
       }
 
-      const next =
+      const nextPath =
         typeof window !== 'undefined'
           ? new URLSearchParams(window.location.search).get('next')
           : null;
 
-      router.replace(next?.startsWith('/') ? next : '/dashboard');
+      router.replace(
+        nextPath?.startsWith('/') ? nextPath : '/dashboard',
+      );
+
       router.refresh();
-    } catch} catch (error) {
-  console.error(error);
+    } catch (caughtError) {
+      console.error(caughtError);
 
-  const message =
-    error instanceof Error
-      ? error.message
-      : JSON.stringify(error);
+      const message =
+        caughtError instanceof Error
+          ? caughtError.message
+          : 'No se pudo conectar con el servicio de acceso.';
 
-  alert(message);
-  setError(message);
-}} catch (error) {
-  console.error(error);
-
-  const message =
-    error instanceof Error
-      ? error.message
-      : JSON.stringify(error);
-
-  alert(message);
-  setError(message);
-}} catch (error) {
-  console.error(error);
-
-  const message =
-    error instanceof Error
-      ? error.message
-      : JSON.stringify(error);
-
-  alert(message);
-  setError(message);
-}
+      setError(message);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -99,15 +97,18 @@ if (!data.user) {
         </div>
 
         <h1>Acceso administrativo</h1>
+
         <p>
-          Inicio de sesión privado para el equipo de AZ+PHARMA. El acceso de
-          clientes continúa separado.
+          Inicio de sesión privado para el equipo de AZ+PHARMA.
+          El acceso de clientes continúa separado.
         </p>
 
         <label>
           <span>Correo</span>
+
           <div>
             <Mail size={18} />
+
             <input
               type="email"
               autoComplete="username"
@@ -120,8 +121,10 @@ if (!data.user) {
 
         <label>
           <span>Contraseña</span>
+
           <div>
             <LockKeyhole size={18} />
+
             <input
               type="password"
               autoComplete="current-password"
@@ -132,10 +135,16 @@ if (!data.user) {
           </div>
         </label>
 
-        {error && <p className="admin-login-error">{error}</p>}
+        {error && (
+          <p className="admin-login-error">
+            {error}
+          </p>
+        )}
 
         <button type="submit" disabled={loading}>
-          {loading ? 'Ingresando…' : 'Ingresar al dashboard'}
+          {loading
+            ? 'Ingresando…'
+            : 'Ingresar al dashboard'}
         </button>
       </form>
     </main>
