@@ -1387,3 +1387,111 @@ html body .detail-image .detail-product-img{
     flex:1;
   }
 }
+
+
+/* ==========================================================
+   AJUSTE FINAL — VIDEO ARRIBA Y CUENTA LEGIBLE EN CELULAR
+   ========================================================== */
+
+.featured-video-section-top{
+  margin-top:32px !important;
+  margin-bottom:64px !important;
+}
+
+.featured-video-section-top .featured-video-frame{
+  aspect-ratio:1 / 1;
+}
+
+.featured-video-section-top .featured-video-frame::before{
+  display:none !important;
+}
+
+.featured-video-section-top .featured-video-frame video{
+  position:relative !important;
+  inset:auto !important;
+  width:100% !important;
+  height:100% !important;
+  aspect-ratio:1 / 1;
+  object-fit:cover !important;
+}
+
+.account-section .account-inner > .primary-btn{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:52px !important;
+  padding:0 28px !important;
+  background:#1174f5 !important;
+  color:#ffffff !important;
+  border:0 !important;
+  border-radius:18px !important;
+  font-weight:800 !important;
+  line-height:1.2 !important;
+  text-align:center !important;
+  text-shadow:none !important;
+  opacity:1 !important;
+  box-shadow:0 12px 26px rgba(17,116,245,.25) !important;
+}
+
+.account-section .account-inner > .primary-btn:hover{
+  background:#075fd4 !important;
+  color:#ffffff !important;
+}
+
+@media(max-width:760px){
+  .featured-video-section-top{
+    margin-top:20px !important;
+    margin-bottom:44px !important;
+  }
+
+  .account-section{
+    padding:54px 20px !important;
+  }
+
+  .account-inner{
+    width:100% !important;
+    gap:26px !important;
+  }
+
+  .account-inner > div:first-child{
+    width:100% !important;
+  }
+
+  .account-inner h2{
+    margin:8px 0 12px !important;
+    font-size:clamp(2rem,9vw,2.6rem) !important;
+    line-height:1.05 !important;
+  }
+
+  .account-inner p{
+    margin:0 !important;
+    max-width:100% !important;
+    font-size:1.05rem !important;
+    line-height:1.55 !important;
+  }
+
+  .account-section .account-inner > .primary-btn{
+    width:100% !important;
+    min-height:58px !important;
+    padding:0 20px !important;
+    font-size:1rem !important;
+    color:#ffffff !important;
+  }
+}
+
+@media(max-width:620px){
+  .featured-video-section-top{
+    width:calc(100% - 20px) !important;
+    padding:20px !important;
+    gap:22px !important;
+  }
+
+  .featured-video-section-top .featured-video-copy{
+    text-align:center !important;
+  }
+
+  .featured-video-section-top .featured-video-copy h2{
+    font-size:clamp(1.85rem,9vw,2.35rem) !important;
+    line-height:1.08 !important;
+  }
+}
