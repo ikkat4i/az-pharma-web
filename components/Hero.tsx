@@ -4,15 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useStore } from './StoreProvider';
 
-type Slide = {
-  badge: string;
-  title: string;
-  subtitle: string;
-  image: string;
-  artwork?: boolean;
-};
-
-const slides: Record<'es' | 'pt' | 'en', Slide[]> = {
+const slides = {
   es: [
     {
       badge: 'CATÁLOGO 2026',
@@ -29,11 +21,10 @@ const slides: Record<'es' | 'pt' | 'en', Slide[]> = {
     },
     {
       badge: 'COMPRA DIRECTA',
-      title: 'Tu farmacia online de confianza',
+      title: 'Tu pedido por WhatsApp',
       subtitle:
-        'Elegí tus productos, revisá el carrito y enviá el pedido por WhatsApp.',
-      image: '/images/banner-whatsapp-productos-reales.png',
-      artwork: true,
+        'Elegí tus productos, revisá el carrito y enviá el pedido en segundos.',
+      image: '/images/banner-computadora-manos.png',
     },
   ],
   pt: [
@@ -52,11 +43,10 @@ const slides: Record<'es' | 'pt' | 'en', Slide[]> = {
     },
     {
       badge: 'COMPRA DIRETA',
-      title: 'Sua farmácia online de confiança',
+      title: 'Seu pedido pelo WhatsApp',
       subtitle:
-        'Escolha seus produtos, revise o carrinho e envie o pedido pelo WhatsApp.',
-      image: '/images/banner-whatsapp-productos-reales.png',
-      artwork: true,
+        'Escolha os produtos, revise o carrinho e envie o pedido em segundos.',
+      image: '/images/banner-computadora-manos.png',
     },
   ],
   en: [
@@ -75,11 +65,10 @@ const slides: Record<'es' | 'pt' | 'en', Slide[]> = {
     },
     {
       badge: 'DIRECT PURCHASE',
-      title: 'Your trusted online pharmacy',
+      title: 'Order through WhatsApp',
       subtitle:
-        'Choose your products, review your cart and send the order by WhatsApp.',
-      image: '/images/banner-whatsapp-productos-reales.png',
-      artwork: true,
+        'Choose your products, review the cart and send the order in seconds.',
+      image: '/images/banner-computadora-manos.png',
     },
   ],
 };
@@ -94,7 +83,6 @@ export function Hero() {
       () => setActive((value) => (value + 1) % current.length),
       6000,
     );
-
     return () => window.clearInterval(id);
   }, [current.length]);
 
@@ -108,10 +96,10 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className={`hero${slide.artwork ? ' hero-artwork' : ''}`}
+      className="hero"
       style={{ backgroundImage: `url(${slide.image})` }}
     >
-      {!slide.artwork && <div className="hero-overlay" />}
+      <div className="hero-overlay" />
 
       <button
         className="hero-arrow left"
@@ -122,13 +110,11 @@ export function Hero() {
         <ChevronLeft />
       </button>
 
-      {!slide.artwork && (
-        <div key={`${lang}-${active}`} className="hero-content">
-          <span className="hero-badge">{slide.badge}</span>
-          <h1>{slide.title}</h1>
-          <p>{slide.subtitle}</p>
-        </div>
-      )}
+      <div key={`${lang}-${active}`} className="hero-content">
+        <span className="hero-badge">{slide.badge}</span>
+        <h1>{slide.title}</h1>
+        <p>{slide.subtitle}</p>
+      </div>
 
       <button
         className="hero-arrow right"
