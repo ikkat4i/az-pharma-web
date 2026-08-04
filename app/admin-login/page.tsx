@@ -53,10 +53,37 @@ if (!data.user) {
 
       router.replace(next?.startsWith('/') ? next : '/dashboard');
       router.refresh();
-    } catch {
-      setError('No se pudo conectar con el servicio de acceso.');
-    } finally {
-      setLoading(false);
+    } catch} catch (error) {
+  console.error(error);
+
+  const message =
+    error instanceof Error
+      ? error.message
+      : JSON.stringify(error);
+
+  alert(message);
+  setError(message);
+}} catch (error) {
+  console.error(error);
+
+  const message =
+    error instanceof Error
+      ? error.message
+      : JSON.stringify(error);
+
+  alert(message);
+  setError(message);
+}} catch (error) {
+  console.error(error);
+
+  const message =
+    error instanceof Error
+      ? error.message
+      : JSON.stringify(error);
+
+  alert(message);
+  setError(message);
+}
     }
   }
 
