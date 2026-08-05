@@ -43,19 +43,80 @@ export default function Home() {
 
           <div className="featured-video-frame">
             <video
-              src="/videos/productos-destacados.mp4"
+              src="/videos/video-principal-az-pharma.mp4"
               autoPlay
               muted
               loop
               playsInline
               preload="metadata"
-              aria-label="Video de productos destacados de AZ+PHARMA"
+              aria-label="Video principal de productos AZ+PHARMA"
             />
           </div>
         </section>
 
         <Featured />
         <Catalog />
+
+        <section
+          className="video-gallery-section"
+          aria-labelledby="video-gallery-title"
+        >
+          <div className="video-gallery-heading">
+            <span className="featured-video-kicker">Conocé AZ+PHARMA</span>
+            <h2 id="video-gallery-title">
+              Productos y presentaciones en detalle
+            </h2>
+            <p>
+              Mirá de cerca algunas de nuestras presentaciones y conocé mejor
+              la selección disponible en nuestro catálogo.
+            </p>
+          </div>
+
+          <div className="video-gallery-grid">
+            <article className="video-gallery-card">
+              <div className="video-gallery-frame">
+                <video
+                  src="/videos/video-producto-az-pharma-02.mp4"
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  preload="metadata"
+                  aria-label="Video de presentación de producto AZ+PHARMA"
+                />
+              </div>
+              <div className="video-gallery-copy">
+                <h3>Presentaciones seleccionadas</h3>
+                <p>
+                  Una vista más cercana de productos disponibles en nuestro
+                  catálogo.
+                </p>
+              </div>
+            </article>
+
+            <article className="video-gallery-card">
+              <div className="video-gallery-frame">
+                <video
+                  src="/videos/video-producto-az-pharma-03.mp4"
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  preload="metadata"
+                  aria-label="Video adicional de productos AZ+PHARMA"
+                />
+              </div>
+              <div className="video-gallery-copy">
+                <h3>Calidad y presentación</h3>
+                <p>
+                  Detalles visuales para ayudarte a reconocer cada producto y
+                  su presentación.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
         <Benefits />
         <AccountSection />
         <RegisteredCatalogDownload />
