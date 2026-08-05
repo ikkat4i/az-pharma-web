@@ -966,3 +966,12 @@ html body .product-card .product-link {
     gap:20px !important;
   }
 }
+/* Ocultar información de stock en la página pública */
+.product-detail-page .stock-ok,
+.product-detail-page .stock-out,
+.product-card .stock-ok,
+.product-card .stock-out,
+.featured .stock-ok,
+.featured .stock-out {
+  display: none !important;
+}
