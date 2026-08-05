@@ -13,29 +13,18 @@ export default function Home() {
   return (
     <>
       <Navbar />
-
       <main>
         <Hero />
 
-        <section
-          className="featured-video-section featured-video-section-top"
-          aria-labelledby="featured-video-title"
-        >
+        <section className="featured-video-section featured-video-section-top">
           <div className="featured-video-copy">
-            <span className="featured-video-kicker">
-              Selección AZ+PHARMA
-            </span>
-
-            <h2 id="featured-video-title">
-              Descubrí nuestros productos destacados
-            </h2>
-
+            <span className="featured-video-kicker">Selección AZ+PHARMA</span>
+            <h2>Descubrí nuestros productos destacados</h2>
             <p>
               Una selección de presentaciones pensada para mostrarte, de forma
               clara y profesional, algunos de los productos disponibles en
               nuestro catálogo.
             </p>
-
             <a href="#productos" className="featured-video-link">
               Ver catálogo completo
             </a>
@@ -49,7 +38,7 @@ export default function Home() {
               loop
               playsInline
               preload="metadata"
-              aria-label="Video principal de productos AZ+PHARMA"
+              aria-label="Video principal de AZ+PHARMA"
             />
           </div>
         </section>
@@ -58,60 +47,37 @@ export default function Home() {
         <Catalog />
 
         <section
-          className="video-gallery-section"
-          aria-labelledby="video-gallery-title"
+          className="video-gallery-section video-gallery-section-only"
+          aria-label="Videos de AZ+PHARMA"
         >
-          <div className="video-gallery-heading">
-            <span className="featured-video-kicker">Conocé AZ+PHARMA</span>
-            <h2 id="video-gallery-title">
-              Productos y presentaciones en detalle
-            </h2>
-            <p>
-              Mirá de cerca algunas de nuestras presentaciones y conocé mejor
-              la selección disponible en nuestro catálogo.
-            </p>
-          </div>
-
-          <div className="video-gallery-grid">
-            <article className="video-gallery-card">
+          <div className="video-gallery-grid video-gallery-grid-only">
+            <article className="video-gallery-card video-gallery-card-only">
               <div className="video-gallery-frame">
                 <video
                   src="/videos/video-producto-az-pharma-02.mp4"
+                  autoPlay
                   muted
                   loop
                   playsInline
-                  controls
+                  controls={false}
                   preload="metadata"
-                  aria-label="Video de presentación de producto AZ+PHARMA"
+                  aria-label="Video de AZ+PHARMA"
                 />
-              </div>
-              <div className="video-gallery-copy">
-                <h3>Presentaciones seleccionadas</h3>
-                <p>
-                  Una vista más cercana de productos disponibles en nuestro
-                  catálogo.
-                </p>
               </div>
             </article>
 
-            <article className="video-gallery-card">
+            <article className="video-gallery-card video-gallery-card-only">
               <div className="video-gallery-frame">
                 <video
                   src="/videos/video-producto-az-pharma-03.mp4"
+                  autoPlay
                   muted
                   loop
                   playsInline
-                  controls
+                  controls={false}
                   preload="metadata"
-                  aria-label="Video adicional de productos AZ+PHARMA"
+                  aria-label="Video de AZ+PHARMA"
                 />
-              </div>
-              <div className="video-gallery-copy">
-                <h3>Calidad y presentación</h3>
-                <p>
-                  Detalles visuales para ayudarte a reconocer cada producto y
-                  su presentación.
-                </p>
               </div>
             </article>
           </div>
