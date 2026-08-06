@@ -974,4 +974,37 @@ html body .product-card .product-link {
 .featured .stock-ok,
 .featured .stock-out {
   display: none !important;
+}/* AZ+PHARMA — cabecera limpia y coherente con el nuevo logo */
+.brand-logo,
+.nav-brand,
+.navbar-brand{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:12px !important;
+  text-decoration:none !important;
+}
+
+.brand-logo img,
+.nav-brand img,
+.navbar-brand img{
+  display:block !important;
+  width:auto !important;
+  height:54px !important;
+  object-fit:contain !important;
+}
+
+.navbar,
+.site-header,
+header.site-header{
+  background:#ffffff !important;
+  border-bottom:1px solid #e6eef8 !important;
+  box-shadow:0 8px 28px rgba(13,67,126,.06) !important;
+}
+
+@media(max-width:760px){
+  .brand-logo img,
+  .nav-brand img,
+  .navbar-brand img{
+    height:44px !important;
+  }
 }
