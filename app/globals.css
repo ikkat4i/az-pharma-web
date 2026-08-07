@@ -77,6 +77,59 @@
   .hero{
     background-position: 68% center !important;
   }
+}/* ===== CARRITO AZ+PHARMA - SOLO ICONO AZUL SIN FONDO ===== */
+
+.cart-icon {
+  position: relative !important;
+  width: 42px !important;
+  height: 42px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  color: #0754b8 !important;
+  cursor: pointer !important;
+}
+
+.cart-icon:hover {
+  background: #f0f7ff !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.cart-icon svg {
+  width: 25px !important;
+  height: 25px !important;
+  display: block !important;
+  margin: 0 !important;
+  color: #0754b8 !important;
+  stroke: #0754b8 !important;
+  stroke-width: 2.2 !important;
+  transform: none !important;
+}
+
+.cart-icon span {
+  position: absolute !important;
+  top: -3px !important;
+  right: -3px !important;
+  min-width: 18px !important;
+  height: 18px !important;
+  padding: 0 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #0754b8 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 999px !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
 }
 
 /* Banner WhatsApp profesional: computadora y logo de fondo */
