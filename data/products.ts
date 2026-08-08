@@ -69,7 +69,10 @@ export const products: Product[] = [
     usage:
       'Aplicación subcutánea semanal bajo supervisión médica. Mantener cadena de frío entre 2 °C y 8 °C; no congelar. No compartir jeringas ni vial.',
     origin: 'Paraguay',
-    image: '/images/products/tg12-5.png?v=2',
+
+    // IMAGEN NUEVA TG 12,5
+    image: '/images/products/tg125.png?v=20260808',
+
     priceUSD: null,
     stock: 8,
     prescription: true,
