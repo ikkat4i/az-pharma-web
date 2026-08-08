@@ -8,10 +8,10 @@
   "theme_color": "#0754b8",
   "icons": [
     {
-      "src": "/icon.png?v=301",
+      "src": "/images/azplus-favicon-v20260808.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }
