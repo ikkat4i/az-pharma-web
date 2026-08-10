@@ -1735,3 +1735,52 @@ section{
   font-weight: 800 !important;
   line-height: 1 !important;
 }
+/* =========================================================
+   FOOTER AZ+ PHARMA - DISTRIBUCIÓN HORIZONTAL
+========================================================= */
+
+.footer-inner-horizontal {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.footer-brand-column,
+.footer-links-column,
+.footer-contact-column {
+  min-width: 0;
+}
+
+.footer-logo {
+  width: 175px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 22px;
+}
+
+.footer-links-column,
+.footer-contact-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-links-column h3,
+.footer-contact-column h3 {
+  margin: 0 0 8px;
+}
+
+.footer-contact-column a,
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+@media (max-width: 760px) {
+  .footer-inner-horizontal {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}

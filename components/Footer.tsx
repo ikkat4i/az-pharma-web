@@ -16,13 +16,15 @@ const INSTAGRAM_URL = 'https://www.instagram.com/azu_pharma/';
 export function Footer() {
   return (
     <footer className="footer" id="contacto">
-      <div className="footer-inner">
+      <div className="footer-inner footer-inner-horizontal">
         <section className="footer-brand-column">
           <Image
-            src="/images/logo.png"
-            alt="AZ+PHARMA"
-            width={170}
-            height={70}
+            src="/images/az-pharma-logo-header.png"
+            alt="AZ+ PHARMA"
+            width={175}
+            height={80}
+            className="footer-logo"
+            unoptimized
           />
 
           <p>
@@ -38,6 +40,7 @@ export function Footer() {
 
         <section className="footer-links-column">
           <h3>Navegación</h3>
+
           <Link href="/">Inicio</Link>
           <Link href="/#productos">Productos</Link>
           <Link href="/#contacto">Contacto</Link>
@@ -48,12 +51,12 @@ export function Footer() {
 
           <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
             <MessageCircle size={18} />
-            WhatsApp
+            <span>WhatsApp</span>
           </a>
 
-          <span>
+          <span className="footer-contact-item">
             <MapPin size={18} />
-            Ciudad del Este, Paraguay
+            <span>Ciudad del Este, Paraguay</span>
           </span>
 
           <a
@@ -62,12 +65,12 @@ export function Footer() {
             rel="noreferrer"
           >
             <Instagram size={18} />
-            @azpharma0
+            <span>@azu_pharma</span>
           </a>
 
-          <span>
+          <span className="footer-contact-item">
             <Facebook size={18} />
-            Az+Pharma
+            <span>Azu+Pharma</span>
           </span>
         </section>
       </div>
