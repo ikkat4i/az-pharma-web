@@ -1,24 +1,29 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Instagram, MapPin, MessageCircle, ShieldCheck } from 'lucide-react';
+import {
+  Facebook,
+  Instagram,
+  MapPin,
+  MessageCircle,
+  ShieldCheck,
+} from 'lucide-react';
 
 const WHATSAPP_URL =
-  'https://wa.me/595973694377?text=Hola%20AZ%2BPHARMA%2C%20quisiera%20realizar%20una%20consulta.';
+  'https://wa.me/595973694377?text=Hola%20AZ%2BPHARMA%2C%20quisiera%20realizar%20una%20consulta';
+
+const INSTAGRAM_URL = 'https://www.instagram.com/azu_pharma/';
 
 export function Footer() {
   return (
-    <footer id="contacto" className="footer footer-premium">
-      <div className="footer-premium-inner">
+    <footer className="footer" id="contacto">
+      <div className="footer-inner">
         <section className="footer-brand-column">
-          <Link href="/" className="footer-brand-link" aria-label="AZ+PHARMA">
-            <Image
-              src="/images/az-pharma-logo-header.png"
-              alt="AZ+PHARMA"
-              width={260}
-              height={165}
-              className="footer-brand-image"
-            />
-          </Link>
+          <Image
+            src="/images/logo.png"
+            alt="AZ+PHARMA"
+            width={170}
+            height={70}
+          />
 
           <p>
             Tu farmacia online con atención cercana, compra segura y envíos
@@ -51,9 +56,18 @@ export function Footer() {
             Ciudad del Este, Paraguay
           </span>
 
-          <span className="footer-instagram-pending">
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
             <Instagram size={18} />
-            Instagram próximamente
+            @azpharma0
+          </a>
+
+          <span>
+            <Facebook size={18} />
+            Az+Pharma
           </span>
         </section>
       </div>
