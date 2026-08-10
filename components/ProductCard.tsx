@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { LockKeyhole, ShoppingCart, Star } from 'lucide-react';
+import { ShoppingCart, Star } from 'lucide-react';
 import type { Product } from '@/data/products';
 import { useStore } from './StoreProvider';
 import { ImageZoom } from './ImageZoom';
@@ -36,11 +36,10 @@ export function ProductCard({ product }: { product: Product }) {
         <h3>{product.name}</h3>
         <p>{product.detail}</p>
       </Link>
-
       <div className="stars">
         {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={15} fill="currentColor" />)}
       </div>
-      <div className="prescription"><LockKeyhole size={13} />{t('prescription')}</div>
+      
       <strong className="price">{formatPrice(product.priceUSD)}</strong>
       <button className="cart-btn" onClick={() => addToCart(product)}><ShoppingCart size={17} />{t('add')}</button>
     </article>
