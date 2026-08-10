@@ -114,3 +114,4 @@ export function RegisteredCatalogDownload() {
       </div>
     </section>
   );
+  }
