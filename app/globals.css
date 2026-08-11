@@ -1877,4 +1877,11 @@ section{
     width: 145px !important;
     max-width: 145px !important;
   }
+}.footer-logo {
+  width: 200px !important;
+  max-width: 200px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  background: transparent !important;
 }
