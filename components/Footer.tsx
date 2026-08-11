@@ -21,12 +21,13 @@ export function Footer() {
   return (
     <footer className="footer" id="contacto">
       <div className="footer-inner footer-inner-horizontal">
+
         <section className="footer-brand-column">
           <Image
-            src="/images/az-pharma-footer.png"
+            src="/images/az-pharma-footer-nuevo.png"
             alt="AZ+ PHARMA"
-            width={210}
-            height={115}
+            width={150}
+            height={150}
             className="footer-logo"
             unoptimized
           />
@@ -82,14 +83,20 @@ export function Footer() {
             rel="noreferrer"
           >
             <Facebook size={18} />
-            <span>Azu+Pharma</span>
+            <span>Az+Pharma</span>
           </a>
         </section>
+
       </div>
 
       <div className="footer-bottom">
-        <span>© {new Date().getFullYear()} AZ+PHARMA</span>
-        <span>Cuidando tu bienestar, un paso a la vez.</span>
+        <span>
+          © {new Date().getFullYear()} AZ+PHARMA
+        </span>
+
+        <span>
+          Cuidando tu bienestar, un paso a la vez.
+        </span>
       </div>
     </footer>
   );
