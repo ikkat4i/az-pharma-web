@@ -11,7 +11,11 @@ import {
 const WHATSAPP_URL =
   'https://wa.me/595973694377?text=Hola%20AZ%2BPHARMA%2C%20quisiera%20realizar%20una%20consulta';
 
-const INSTAGRAM_URL = 'https://www.instagram.com/azu_pharma/';
+const INSTAGRAM_URL =
+  'https://www.instagram.com/azpharma0/';
+
+const FACEBOOK_URL =
+  'https://www.facebook.com/profile.php?id=61593232347229';
 
 export function Footer() {
   return (
@@ -19,10 +23,10 @@ export function Footer() {
       <div className="footer-inner footer-inner-horizontal">
         <section className="footer-brand-column">
           <Image
-            src="/images/az-pharma-logo-header.png"
+            src="/images/az-pharma-footer.png"
             alt="AZ+ PHARMA"
-            width={175}
-            height={80}
+            width={210}
+            height={115}
             className="footer-logo"
             unoptimized
           />
@@ -49,7 +53,11 @@ export function Footer() {
         <section className="footer-contact-column">
           <h3>Atención</h3>
 
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
             <MessageCircle size={18} />
             <span>WhatsApp</span>
           </a>
@@ -65,13 +73,17 @@ export function Footer() {
             rel="noreferrer"
           >
             <Instagram size={18} />
-            <span>@azu_pharma</span>
+            <span>@azpharma0</span>
           </a>
 
-          <span className="footer-contact-item">
+          <a
+            href={FACEBOOK_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
             <Facebook size={18} />
             <span>Azu+Pharma</span>
-          </span>
+          </a>
         </section>
       </div>
 

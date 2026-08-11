@@ -1783,4 +1783,41 @@ section{
     grid-template-columns: 1fr;
     gap: 36px;
   }
+}.footer-inner-horizontal {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.footer-logo {
+  width: 210px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 22px;
+}
+
+.footer-links-column,
+.footer-contact-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-contact-column a,
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+@media (max-width: 760px) {
+  .footer-inner-horizontal {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer-logo {
+    width: 180px;
+  }
 }
