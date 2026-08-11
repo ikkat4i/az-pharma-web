@@ -26,8 +26,8 @@ export function Footer() {
           <Image
             src="/images/az-pharma-footer-nuevo.png"
             alt="AZ+ PHARMA"
-            width={150}
-            height={150}
+            width={160}
+            height={100}
             className="footer-logo"
             unoptimized
           />
@@ -90,13 +90,8 @@ export function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <span>
-          © {new Date().getFullYear()} AZ+PHARMA
-        </span>
-
-        <span>
-          Cuidando tu bienestar, un paso a la vez.
-        </span>
+        <span>© {new Date().getFullYear()} AZ+PHARMA</span>
+        <span>Cuidando tu bienestar, un paso a la vez.</span>
       </div>
     </footer>
   );

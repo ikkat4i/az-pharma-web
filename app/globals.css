@@ -1820,4 +1820,61 @@ section{
   .footer-logo {
     width: 180px;
   }
+}/* =========================================================
+   FOOTER AZ+PHARMA - AJUSTE FINAL
+========================================================= */
+
+.footer-inner-horizontal {
+  display: grid !important;
+  grid-template-columns: 1.4fr 0.8fr 1fr !important;
+  gap: 70px !important;
+  align-items: start !important;
+}
+
+.footer-brand-column,
+.footer-links-column,
+.footer-contact-column {
+  min-width: 0;
+}
+
+.footer-logo {
+  width: 160px !important;
+  height: auto !important;
+  max-width: 160px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+  margin: 0 0 22px 0 !important;
+  background: transparent !important;
+}
+
+.footer-links-column,
+.footer-contact-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-links-column h3,
+.footer-contact-column h3 {
+  margin: 0 0 8px;
+}
+
+.footer-contact-column a,
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+@media (max-width: 760px) {
+  .footer-inner-horizontal {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+
+  .footer-logo {
+    width: 145px !important;
+    max-width: 145px !important;
+  }
 }
