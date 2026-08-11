@@ -24,7 +24,7 @@ export function Footer() {
 
         <section className="footer-brand-column">
           <Image
-            src="/images/az-pharma-footer-nuevo.png"
+            src="/images/az-pharma-footer-v3.png"
             alt="AZ+ PHARMA"
             width={160}
             height={100}
