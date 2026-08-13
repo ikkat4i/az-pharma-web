@@ -1,6 +1,5 @@
 'use client';
 
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useStore } from './StoreProvider';
 
@@ -27,6 +26,7 @@ const slides = {
       image: '/images/banner-computadora-manos.png',
     },
   ],
+
   pt: [
     {
       badge: 'CATÁLOGO 2026',
@@ -49,6 +49,7 @@ const slides = {
       image: '/images/banner-computadora-manos.png',
     },
   ],
+
   en: [
     {
       badge: '2026 CATALOG',
@@ -76,54 +77,44 @@ const slides = {
 export function Hero() {
   const { lang } = useStore();
   const [active, setActive] = useState(0);
+
   const current = slides[lang];
+  const slide = current[active];
 
   useEffect(() => {
-    const id = window.setInterval(
-      () => setActive((value) => (value + 1) % current.length),
-      6000,
-    );
+    const id = window.setInterval(() => {
+      setActive((value) => (value + 1) % current.length);
+    }, 6000);
+
     return () => window.clearInterval(id);
   }, [current.length]);
-
-  const move = (direction: number) =>
-    setActive(
-      (value) => (value + direction + current.length) % current.length,
-    );
-
-  const slide = current[active];
 
   return (
     <section
       id="inicio"
       className="hero"
-      style={{ backgroundImage: `url(${slide.image})` }}
+      style={{
+        backgroundImage: `url(${slide.image})`,
+      }}
     >
       <div className="hero-overlay" />
 
-      <button
-        className="hero-arrow left"
-        onClick={() => move(-1)}
-        aria-label="Anterior"
-        type="button"
+      <div
+        key={`${lang}-${active}`}
+        className="hero-content"
       >
-        <ChevronLeft />
-      </button>
+        <span className="hero-badge">
+          {slide.badge}
+        </span>
 
-      <div key={`${lang}-${active}`} className="hero-content">
-        <span className="hero-badge">{slide.badge}</span>
-        <h1>{slide.title}</h1>
-        <p>{slide.subtitle}</p>
+        <h1>
+          {slide.title}
+        </h1>
+
+        <p>
+          {slide.subtitle}
+        </p>
       </div>
-
-      <button
-        className="hero-arrow right"
-        onClick={() => move(1)}
-        aria-label="Siguiente"
-        type="button"
-      >
-        <ChevronRight />
-      </button>
 
       <div className="dots">
         {current.map((_, index) => (
@@ -131,7 +122,11 @@ export function Hero() {
             key={index}
             type="button"
             aria-label={`Slide ${index + 1}`}
-            className={index === active ? 'dot active' : 'dot'}
+            className={
+              index === active
+                ? 'dot active'
+                : 'dot'
+            }
             onClick={() => setActive(index)}
           />
         ))}
